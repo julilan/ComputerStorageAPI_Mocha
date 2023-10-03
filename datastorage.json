@@ -1,0 +1,82 @@
+[
+  {
+    "computerNumber": 1,
+    "name": "Xunil 4.7",
+    "type": "server",
+    "price": 10,
+    "manufacturer": "Xyz computing",
+    "colors": [
+      "yellow",
+      "white",
+      "green"
+    ],
+    "extras": {
+      "consumption": "C",
+      "comments": "no comments",
+      "model": "XXL"
+    }
+  },
+  {
+    "computerNumber": 2,
+    "name": "Xunil 4.7",
+    "type": "gameover",
+    "price": 200,
+    "manufacturer": "Leila Hökki & co",
+    "colors": [
+      "red",
+      "green",
+      "blue"
+    ],
+    "extras": {
+      "consumption": "D",
+      "comments": "-",
+      "model": "silver"
+    }
+  },
+  {
+    "computerNumber": 3,
+    "name": "King 3000",
+    "type": "gameover",
+    "price": 36,
+    "manufacturer": "Leila Hökki & co",
+    "colors": [
+      "black",
+      "orange",
+      "blue"
+    ],
+    "extras": {
+      "consumption": "A+",
+      "comments": "no comments",
+      "model": "gold"
+    }
+  },
+  {
+    "computerNumber": 4,
+    "name": "BigFlop Mark II",
+    "type": "laptop",
+    "price": 10,
+    "manufacturer": "Home Computer Depot",
+    "colors": [
+      "black",
+      "orange",
+      "red"
+    ],
+    "extras": {
+      "consumption": "D",
+      "comments": "high quality",
+      "model": "chrome"
+    }
+  },
+  {
+    "computerNumber": 5,
+    "name": "Cera 2400",
+    "type": "tabletop",
+    "price": 10,
+    "manufacturer": "Ocean",
+    "colors": [
+      "black",
+      "orange",
+      "green"
+    ]
+  }
+]
