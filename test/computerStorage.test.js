@@ -15,11 +15,11 @@ describe('Testing constructor', function () {
 
 describe('Testing has_extras() with default data', function () {
   const storage = new ComputerStorage(computers);
-  it('has_extras(1) returns true', function () {
+  it('has_extras(1) with extras object returns true', function () {
     expect(storage.has_extras(1)).to.be.true;
   });
 
-  it('has_extras(5) returns false', function () {
+  it('has_extras(5) with no extras object returns false', function () {
     expect(storage.has_extras(5)).to.be.false;
   });
 
