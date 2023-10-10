@@ -226,6 +226,11 @@ describe('Testing get_a_computer_matching_computerNumber(searchKey)', function (
     expect(storage.get_a_computer_matching_computerNumber(1)).to.deep.equal(expectedResult);
   });
 
+  // Other option is to use computers with correct index
+  it('Test 1B: Test with matching searchKey "1"', function () {
+    expect(storage.get_a_computer_matching_computerNumber(1)).to.deep.equal(computers[0]);
+  });
+
   it('Test 2: Test with not matching searchKey "789"', function () {
     expect(storage.get_a_computer_matching_computerNumber(789)).to.be.null;
   });
