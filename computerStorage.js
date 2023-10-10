@@ -55,7 +55,7 @@ module.exports = class ComputerStorage {
 
   get_All_computers_By_type(searchValue) {
     if (!searchValue) throw new Error('missing parameter');
-    let found = [];
+    const found = [];
     for (const computer of this.#storage) {
       if (computer.type === searchValue) {
         found.push(computer);
@@ -66,12 +66,10 @@ module.exports = class ComputerStorage {
 
   get_All_computers_By_color(searchValue){
     if (!searchValue) return [];
-    let found = [];
+    const found = [];
     for (const computer of this.#storage) {
-      for (const color of computer.colors) {
-        if (color === searchValue) {
-          found.push(computer.computerNumber);
-        }
+      if (computer.colors.includes(searchValue)) {
+        found.push(computer.computerNumber);
       }
     }
     return found;
@@ -89,7 +87,7 @@ module.exports = class ComputerStorage {
 
   get_All_computers_By_manufacturer(searchValue) {
     if (!searchValue) throw new Error('missing parameter');
-    let found = [];
+    const found = [];
     for (const computer of this.#storage) {
       if (computer.manufacturer === searchValue) {
         found.push(computer);
