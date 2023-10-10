@@ -2,9 +2,9 @@
 
 module.exports = class ComputerStorage {
   #storage;
-  constructor(data) {
-    if (!data) throw new Error('data storage missing');
-    this.#storage = data;
+  constructor(jsondata) {
+    if (!jsondata) throw new Error('data storage missing');
+    this.#storage = jsondata;
   }
 
   has_extras(searchKey) {
