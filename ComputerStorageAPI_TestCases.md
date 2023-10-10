@@ -44,6 +44,7 @@ Method checks based on computerNumber if the computer has `extras` or not.
 
 - computer matching the searchKey has extras object: hasExtras(1) returns `true`
 - computer matching the searchKey does not have extras object: hasExtras(5) returns `false`
+- conmputer not mathcing the searchKey returns `false`
 
 ### Test with modiefied data
 

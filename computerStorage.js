@@ -21,6 +21,7 @@ module.exports = class ComputerStorage {
         return true;
       }
     }
+    return false;
   }
 
   get_total_price_of_computers_by_type(searchValue) {

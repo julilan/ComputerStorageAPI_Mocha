@@ -22,6 +22,9 @@ describe('Testing has_extras() with default data', function () {
   it('has_extras(5) with no extras object returns false', function () {
     expect(storage.has_extras(5)).to.be.false;
   });
+  it('computer not matching the searchKey returns false', function () {
+    expect(storage.has_extras(789)).to.be.false;
+  });
 
   it('has_extras() parameter missing returns false', function () {
     expect(storage.has_extras()).to.be.false;
