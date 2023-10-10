@@ -24,15 +24,21 @@ module.exports = class ComputerStorage {
     return false;
   }
 
+  // if (computer.computerNumber === searchKey) {
+  //   return Object.keys(computer.extras).length > 0;
+  // }
+
   get_total_price_of_computers_by_type(searchValue) {
     if (!searchValue) throw new Error('missing parameter');
     let totalPrice = 0;
+    let found = false;
     for (const computer of this.#storage) {
       if (computer.type === searchValue) {
         totalPrice += computer.price;
+        found = true;
       }
     }
-    if (totalPrice === 0) {
+    if (found === false) {
       throw new Error('nothing found with given type');
     }
     return totalPrice;
@@ -52,6 +58,40 @@ module.exports = class ComputerStorage {
     let found = [];
     for (const computer of this.#storage) {
       if (computer.type === searchValue) {
+        found.push(computer);
+      }
+    }
+    return found;
+  }
+
+  get_All_computers_By_color(searchValue){
+    if (!searchValue) return [];
+    let found = [];
+    for (const computer of this.#storage) {
+      for (const color of computer.colors) {
+        if (color === searchValue) {
+          found.push(computer.computerNumber);
+        }
+      }
+    }
+    return found;
+  }
+
+  get_a_computer_matching_computerNumber(searchKey) {
+    if (!searchKey) throw new Error('missing parameter');
+    for (const computer of this.#storage) {
+      if (computer.computerNumber === searchKey) {
+        return computer;
+      }
+    }
+    return null;
+  }
+
+  get_All_computers_By_manufacturer(searchValue) {
+    if (!searchValue) throw new Error('missing parameter');
+    let found = [];
+    for (const computer of this.#storage) {
+      if (computer.manufacturer === searchValue) {
         found.push(computer);
       }
     }

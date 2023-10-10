@@ -177,3 +177,125 @@ describe('Testing get_All_computers_By_type()', function () {
     }).to.throw('missing parameter');
   });
 });
+
+describe('Testing get_All_computers_By_color()', function () {
+  const storage = new ComputerStorage(computers);
+  
+  it('Test with matching color "black"', function () {
+    expect(storage.get_All_computers_By_color('black')).to.deep.equal([3,4,5]);
+  });
+
+  it('Test with given color not found', function () {
+    expect(storage.get_All_computers_By_color('pink')).to.deep.equal([]);
+  });
+
+  it('Test parameter is missing', function () {
+    expect(storage.get_All_computers_By_color()).to.deep.equal([]);
+  });
+});
+
+describe('Testing get_a_computer_matching_computerNumber(searchKey)', function () {
+  const storage = new ComputerStorage(computers);
+  const expectedResult =   {
+    "computerNumber": 1,
+    "name": "Xunil 4.7",
+    "type": "server",
+    "price": 10,
+    "manufacturer": "Xyz computing",
+    "colors": [
+      "yellow",
+      "white",
+      "green"
+    ],
+    "extras": {
+      "consumption": "C",
+      "comments": "no comments",
+      "model": "XXL"
+    }
+  }
+
+  it('Test 1: Test with matching searchKey "1"', function () {
+    expect(storage.get_a_computer_matching_computerNumber(1)).to.deep.equal(expectedResult);
+  });
+
+  it('Test 2: Test with not matching searchKey "789"', function () {
+    expect(storage.get_a_computer_matching_computerNumber(789)).to.be.null;
+  });
+
+  it('Test 3: parameter is missing throws an exception "missing parameter"', function () {
+    expect(function () {
+      storage.get_a_computer_matching_computerNumber();
+    }).to.throw('missing parameter');
+  });
+});
+
+describe('Testing get_All_computers_By_manufacturer(searchValue)', function () {
+  const storage = new ComputerStorage(computers);
+  
+  it('Test 1: Test with manufacturer "Ocean" that matches one computer', function () {
+    expect(storage.get_All_computers_By_manufacturer('Ocean')).to.deep.equal([
+      {
+        "computerNumber": 5,
+        "name": "Cera 2400",
+        "type": "tabletop",
+        "price": 10,
+        "manufacturer": "Ocean",
+        "colors": [
+          "black",
+          "orange",
+          "green"
+        ]
+      }
+    ]);
+  });
+
+  const expectedResult = [
+    {
+    "computerNumber": 2,
+    "name": "Xunil 4.7",
+    "type": "gameover",
+    "price": 200,
+    "manufacturer": "Leila Hökki & co",
+    "colors": [
+      "red",
+      "green",
+      "blue"
+    ],
+    "extras": {
+      "consumption": "D",
+      "comments": "-",
+      "model": "silver"
+    }
+    },
+    {
+      "computerNumber": 3,
+      "name": "King 3000",
+      "type": "gameover",
+      "price": 36,
+      "manufacturer": "Leila Hökki & co",
+      "colors": [
+        "black",
+        "orange",
+        "blue"
+      ],
+      "extras": {
+        "consumption": "A+",
+        "comments": "no comments",
+        "model": "gold"
+      }
+    }
+  ]
+  it('Test 2: Test with manufacturer "Leila Hökki & co" that matches more than one computer', function () {
+    expect(storage.get_All_computers_By_manufacturer('Leila Hökki & co')).to.deep.equal(expectedResult);
+  });
+
+  it('Test 3: Manufacturer with given searchValue "Hero Computers" not found returns an empty array', function (){
+    expect(storage.get_All_computers_By_manufacturer('Hero Computers')).to.deep.equal([]);
+  });
+
+  it('Test 4: Parameter missing throws an exception "missing parameter"', function () {
+    expect(function () {
+      storage.get_All_computers_By_manufacturer();
+    }).to.throw('missing parameter');
+  });
+});
