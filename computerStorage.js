@@ -8,25 +8,16 @@ module.exports = class ComputerStorage {
   }
 
   has_extras(searchKey) {
-    if (arguments.length < 1) return false;
+    if (!searchKey) return false;
+
     for (const computer of this.#storage) {
       if (computer.computerNumber === searchKey) {
-        if (!computer.extras) {
-          return false;
-        }
-        //check if empty
-        else if (Object.keys(computer.extras).length === 0) {
-          return false;
-        }
-        return true;
+        if (!computer.extras) return false;
+        return Object.keys(computer.extras).length > 0;
       }
     }
     return false;
   }
-
-  // if (computer.computerNumber === searchKey) {
-  //   return Object.keys(computer.extras).length > 0;
-  // }
 
   get_total_price_of_computers_by_type(searchValue) {
     if (!searchValue) throw new Error('missing parameter');
