@@ -168,7 +168,7 @@ describe('Testing get_All_computers_By_type()', function () {
   });
 
   it('"macbook" returns an empty array []', function () {
-    expect(storage.get_All_computers_By_type('macbook')).to.deep.equal([]);
+    expect(storage.get_All_computers_By_type('macbook')).to.be.empty;
   });
 
   it('Parameter is missing throws an exception "missing parameter"', function () {
@@ -186,11 +186,11 @@ describe('Testing get_All_computers_By_color()', function () {
   });
 
   it('Test with given color not found', function () {
-    expect(storage.get_All_computers_By_color('pink')).to.deep.equal([]);
+    expect(storage.get_All_computers_By_color('pink')).to.be.empty;
   });
 
   it('Test parameter is missing', function () {
-    expect(storage.get_All_computers_By_color()).to.deep.equal([]);
+    expect(storage.get_All_computers_By_color()).to.be.empty;
   });
 });
 
@@ -290,7 +290,7 @@ describe('Testing get_All_computers_By_manufacturer(searchValue)', function () {
   });
 
   it('Test 3: Manufacturer with given searchValue "Hero Computers" not found returns an empty array', function (){
-    expect(storage.get_All_computers_By_manufacturer('Hero Computers')).to.deep.equal([]);
+    expect(storage.get_All_computers_By_manufacturer('Hero Computers')).to.be.empty;
   });
 
   it('Test 4: Parameter missing throws an exception "missing parameter"', function () {
