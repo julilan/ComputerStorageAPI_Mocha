@@ -223,16 +223,29 @@ searches computers with given color
 >Throws:
 >>
 
-### Test with matching color
+### Test with one matching color
+
+- searchValue `white` returns
+```json
+[1]
+```
+
+### Test with multiple sequential matches
 
 - searchValue `black` returns
 ```json
 [3,4,5]
 ```
 
-### Test with given color not found
+### Test with multiple non-sequential matches
+- searchValue `green` returns
+```json
+[1,2,5]
+```
 
-- searchValue `pink` returns an empty array []
+### Test with non-existing color
+
+- searchValue `x` returns an empty array []
 
 ### Test parameter is missing
 

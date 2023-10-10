@@ -180,13 +180,21 @@ describe('Testing get_All_computers_By_type()', function () {
 
 describe('Testing get_All_computers_By_color()', function () {
   const storage = new ComputerStorage(computers);
+
+  it('Test with one matching color', function () {
+    expect(storage.get_All_computers_By_color('white')).to.deep.equal([1]);
+  })
   
-  it('Test with matching color "black"', function () {
+  it('Test with multiple sequential matches, using color "black"', function () {
     expect(storage.get_All_computers_By_color('black')).to.deep.equal([3,4,5]);
   });
 
-  it('Test with given color not found', function () {
-    expect(storage.get_All_computers_By_color('pink')).to.be.empty;
+  it('Test with multiple non-sequential matches, using color "green"', function () {
+    expect(storage.get_All_computers_By_color('green')).to.deep.equal([1,2,5]);
+  });
+
+  it('Test with non-existing color', function () {
+    expect(storage.get_All_computers_By_color('x')).to.be.empty;
   });
 
   it('Test parameter is missing', function () {
